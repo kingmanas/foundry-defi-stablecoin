@@ -1,0 +1,46 @@
+##Stable Coin: A token whose vlaue stays realtively same over time.
+Functions of money----
+   a. Storage of value.
+   b. Unit of Account.
+   c. Medium of exchange.
+ So we need a crypto medium of it.
+
+ Types of Stable Coin:
+    a. Relatively Stable: Pegged to another stable asset.
+    b. Stability Method: Governend or Algorithmic.
+    c. Collateral Type: Endogenous or Exogenous
+
+We are going to make a stablecoin with following in mind---->>>>
+
+  1. Relative Stability: Anchored or Pegged -> $1.0
+  2. Stability Mechanism: Algorithmic (Decentralised)
+  3. Collateral: exogenous (crypto)
+
+    // Threshold lets be 150%
+    // $100 Eth collateral -->> $74
+    // BDY -->> $50
+    // Undercollaterised..!!!!
+
+    //--->>> Someone tells that okay i will pay(liquidate) your $50 BDY -->> Get all your collateral.
+
+    // $74eth
+    //-50$ BDY -->> $24 extra
+    
+
+  ## Fuzz tests ##
+
+  Supply random data in your system in attempt to break it
+
+  -->> Invariant: property of our system that should alwyas hold.
+
+  // we will simoly input data in our tests and foundry will automatically do it and we can chnage the number of runs in toml file 
+
+  -->> Stateless Fuzzing: discarding evry previous run and creating new run evrtime for testing. Eg: Taking a new bolloon everytime to pop it diffeerent ways.
+
+  -->> StateFull Fuzzing: Taking the same balloon and perfroming different poping on it. or the previous state is the starting starting state for next run. 
+
+  *** We do fail_on_revert = false in Foundry, the fail_on_revert option in the foundry.toml configuration file controls whether tests should fail immediately when a transaction reverts or if they should continue execution. Setting fail_on_revert = false means that tests will not fail immediately upon encountering a revert during a transaction. Instead, they will continue executing, allowing you to perform additional assertions or logging before deciding whether the test should pass or fail.
+
+  -->> handler is the file we define to how to interact with a function in a contract
+       a. making a handler so that we can filter exactly waht we want to test in a function and a in a contract
+
